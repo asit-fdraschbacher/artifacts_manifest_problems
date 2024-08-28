@@ -13,7 +13,7 @@ import java.io.*;
 import java.util.List;
 
 /**
- * Applies a patch package to an Android application package.
+ * Injects a static library dependency into an APK.
  */
 public class InjectStaticLibraryStage extends Stage {
     PipelineContext context = null;
