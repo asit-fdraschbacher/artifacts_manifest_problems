@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+dependencies {
+    implementation 'org.json:json:20230227'
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+}
