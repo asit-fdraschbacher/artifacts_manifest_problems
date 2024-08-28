@@ -2,7 +2,7 @@
 
 # Abstract
 
-The artifacts submitted for our paper include custom software and data we used for carrying out the large-scale analyses of CT for AAB described in the Evaluation section (Section 7.1), as well as the manipulated app binary for the case study in Section 7.2. All software is either supplied as Java source code or Bash scripts. All Java projects include gradle build scripts. Please note that executing the large-scale evaluation of apps on Google Play takes multiple days. The evaluation of apps on Huawei AppGallery takes multiple hours. For both processes, we include intermediary and final results as data artifacts. 
+The artifacts submitted for our paper include custom software and data we used for carrying out the large-scale analyses of CT for AAB described in the Evaluation section (Section 7.1), as well as the manipulated app binary for the case study in Section 7.2. All software is either supplied as Java source code or Bash scripts. All Java projects include gradle build scripts. Please note that executing the large-scale evaluation of apps on Google Play takes multiple days due to rate-limiting of the AndroZoo server. The evaluation of apps on Huawei AppGallery takes multiple hours on a mid-range laptop. For both processes, we include intermediary and final results as data artifacts.
 
 # Artifact Details
 
