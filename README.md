@@ -18,6 +18,9 @@ Custom tooling and code we developed for our evaluation can be found in the `Cod
 
 This folder contains all the code (and binaries) needed for reproducing the Microsoft Loop case study in paper Section 7.2.1. As documented in the paper, the attack injects a dependency on a static library into the manifest of the Microsoft Loop app. As a result, the classes of the static library are added to the app's class path at app launch, which effectively grants the attacker code execution in the context of the victim app. The static library contains a class named identical to the Microsoft Loop app's main activity. When the manipulated Loop app is launched, the class from the static library takes precedence over the app's original main activity. Our fake main activity displays a simply login screen that illustrates the potential to use this attack to extract login credentials.
 
+##### Prerequisites
+* Install bundletool and make sure it is in your PATH, e.g. by following the instructions from https://stackoverflow.com/a/67332078
+
 ##### The experiment
 
 1. Check the Code Transparency of the original APKs in the Original_APKs folder:
