@@ -6,5 +6,5 @@ if [ $# -eq 0 ]; then
 fi
 
 zip tmp-apks.zip "$1"
-/usr/local/opt/openjdk/bin/java -jar "/usr/local/Cellar/bundletool/1.16.0/libexec/bundletool-all.jar" check-transparency --mode=apk --apk-zip=tmp-apks.zip
+bundletool check-transparency --mode=apk --apk-zip=tmp-apks.zip
 rm tmp-apks.zip
