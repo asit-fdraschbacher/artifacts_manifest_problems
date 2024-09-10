@@ -25,7 +25,7 @@ This folder contains all the code (and binaries) needed for reproducing the Micr
 
 1. Check the Code Transparency of the original APKs in the Original_APKs folder:
    
-    `$ ../../Scripts/check_ct.sh Original_APKs/base.apk`
+    `../../Scripts/check_ct.sh Original_APKs/base.apk`
 
 Output:
 
@@ -35,7 +35,7 @@ Output:
 
 2. Check the Code Transparency of the patched APKs in the Patched_APKs folder:
    
-    `../../Scripts/check_ct.sh Patched_APKs/base.apk`
+    `../../Scripts/check_ct.sh Patched_APKs/com.microsoft.loop/base.apk-signed.apk`
 
 Output:
 
@@ -63,7 +63,7 @@ Output:
 
 ###### Prerequisites
 
-* Download and extract the A2P2 Patching Pipeline distribution from https://extgit.iaik.tugraz.at/fdraschbacher/a2p2
+* Download and extract the A2P2 Patching Pipeline distribution from https://extgit.iaik.tugraz.at/fdraschbacher/a2p2.The most recent distribution bundle as of this writing is https://extgit.iaik.tugraz.at/fdraschbacher/a2p2/-/blob/main/a2p2_distribution_v1.0.1.zip?ref_type=heads.
 * IntelliJ IDEA (Community Edition)
 
 ###### Building the A2P2 stage
