@@ -212,7 +212,6 @@ public class Main {
             return;
         }
 
-
         String appsetPath = args[0];
         System.out.println("Using app set " + appsetPath);
         String outputPath = args[1];
