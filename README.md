@@ -103,7 +103,7 @@ The Java source code for the tool we used in Sections 7.1.4 and 7.1.5 for evalua
 
 ##### Prerequisites:
 
-* Working JDK installation and JRE that includes a JavaScript engine (we used Java 11)
+* Working JDK installation and JRE
 * IntelliJ IDEA (e.g. the free community edition)
 
 ##### Steps to run

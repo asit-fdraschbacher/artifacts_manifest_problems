@@ -2,7 +2,7 @@
 This folder contains the Java source code for the tool we used in Sections 7.1.4 and 7.1.5 for evaluating the susceptibility of an app to attacks A4 and A5. It scans the APK file for files in the assets or resources that carry the file signature or extension of the ELF, DEX, APK, or DLL formats (A4). Additionally, all files in these folders that contain only printable characters are ran through the Esprima JavaScript syntax validator. Lastly, our tool checks the app’s DEX files for the presence of the FileProvider class of the Jetpack Core library (A5).
 
 # Prerequisites:
-* Working JDK installation and JRE that includes a JavaScript engine (we used Java 11)
+* Working JDK installation and JRE
 * IntelliJ IDEA (e.g. the free community edition)
 
 # Steps to run
