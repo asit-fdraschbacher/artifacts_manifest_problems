@@ -4,6 +4,20 @@
 
 The artifacts submitted for our paper include custom software and data we used for carrying out the large-scale analyses of CT for AAB described in the Evaluation section (Section 7.1), as well as the manipulated app binary for the case study in Section 7.2. All software is either supplied as Java source code or Bash scripts. All Java projects include gradle build scripts. Please note that executing the large-scale evaluation of apps on Google Play takes multiple days due to rate-limiting of the AndroZoo server. The evaluation of apps on Huawei AppGallery takes multiple hours on a mid-range laptop. For both processes, we include intermediary and final results as data artifacts.
 
+# Tested Environments
+
+We used the following environment when working on this project:
+- **JDK**: openjdk 22.0.2
+- **IDE**: IntelliJ Community Edition 2024.2.1
+- **Android Studio**: 2024.1.2
+- **OS**: macOS Sonoma 14.5 (23F79) (x86_x64)
+
+The following environment has also been confirmed to work (kudos to our anonymous artifact reviewers at ACSAC'24!):
+- **JDK**: Temurin 17.0.12
+- **IDE**: IntelliJ Community Edition 2024.2.1
+- **Android Studio**: 2024.1.2.12
+- **OS**: Ubuntu 24.04 LTS (x86_x64)
+
 # Artifact Details
 
 The artifact is self-contained. Every folder in the repository contains a README.md file explaining the purpose and usage of the respective artifact. We additionally provide a compilation of all documentation below.
@@ -51,7 +65,7 @@ Output:
 
 4. Install the patched APKs for the Microsoft Loop app:
    
-    `adb install-multiple Patched_APKs/*.apk`
+    `adb install-multiple Patched_APKs/com.microsoft.loop/*.apk`
 
 5. Launch the Microsoft Loop app on the Android device
 
@@ -71,7 +85,7 @@ Output:
 1. Open the A2P2_Stage_Sources project in IntelliJ IDEA (Community Edition)
 2. Ensure the A2P2 path in build.gradle points to the extracted A2P2 distribution on your system
 3. In the gradle pane, double-click on JAR to build the JAR file
-4. The resulting JAR is located at `build/libs/stages.jar` 
+4. The resulting JAR is located at `build/libs/A2P2_Stage_Sources.jar` 
 
 ###### Building the Static Library
 
@@ -80,7 +94,9 @@ Output:
 
 ###### Patching the Microsoft Loop app
 
-1. In the A2P2 distribution folder, create a folder named "stages"
+0. If you haven't already, download and extract the A2P2 distribution from https://extgit.iaik.tugraz.at/fdraschbacher/a2p2/-/blob/main/a2p2_distribution_v1.0.1.zip?ref_type=heads
+
+1. In the extracted A2P2 distribution folder, create a folder named "stages"
 
 2. Copy the A2P2 stage JAR file ("a2p2_stage_inject_static_library.jar") to that folder
 
@@ -113,7 +129,7 @@ The Java source code for the tool we used in Sections 7.1.4 and 7.1.5 for evalua
 3. Right-click the green triangle next to "public class Main" in line 200
 4. Click on "Modify Run Configuration..."
 5. Enter the input and output paths as the first and second argument in the Program arguments text field
-   The input path must point to a valid AppSet folder structure (see AppSet_MostPopularGooglePlay for an example).
+   The input path must point to a valid AppSet folder structure (see AppSet_MostPopularGooglePlay or AppSet_UsingCodeTransparency for examples).
    Inside the root folder of the AppSet, a set of category folders contains one folder per application, which contains the APKs for that app. 
 6. Click on Apply -> OK
 7. Launch the run configuration through the green triangle in the top toolbar

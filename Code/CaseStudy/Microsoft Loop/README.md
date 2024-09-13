@@ -35,7 +35,7 @@ Output:
 
 4. Install the patched APKs for the Microsoft Loop app:
    
-    `adb install-multiple Patched_APKs/*.apk`
+    `adb install-multiple Patched_APKs/com.microsoft.loop/*.apk`
 
 5. Launch the Microsoft Loop app on the Android device
 
@@ -55,16 +55,19 @@ Output:
 1. Open the A2P2_Stage_Sources project in IntelliJ IDEA (Community Edition)
 2. Ensure the A2P2 path in build.gradle points to the extracted A2P2 distribution on your system
 3. In the gradle pane, double-click on JAR to build the JAR file
-4. The resulting JAR is located at `build/libs/stages.jar` 
+4. The resulting JAR is located at `build/libs/A2P2_Stage_Sources.jar` 
 
 ### Building the Static Library
 
-1. Open the Static_Library_Sources folder in Android Studio
-2. Build like you would any other Android project
+1. Open the LibraryTest project in the Static_Library_Sources folder in Android Studio
+2. Click Build > Make Project in the menu
+3. The resulting APK file is located at `app/build/outputs/apk/debug/app-debug.apk`
 
 ### Patching the Microsoft Loop app
 
-1. In the A2P2 distribution folder, create a folder named "stages"
+0. If you haven't already, download and extract the A2P2 distribution from https://extgit.iaik.tugraz.at/fdraschbacher/a2p2/-/blob/main/a2p2_distribution_v1.0.1.zip?ref_type=heads
+
+1. In the extracted A2P2 distribution folder, create a folder named "stages"
 
 2. Copy the A2P2 stage JAR file ("a2p2_stage_inject_static_library.jar") to that folder
 

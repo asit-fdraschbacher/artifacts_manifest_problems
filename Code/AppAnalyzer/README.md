@@ -11,7 +11,7 @@ This folder contains the Java source code for the tool we used in Sections 7.1.4
 3. Right-click the green triangle next to "public class Main" in line 200
 4. Click on "Modify Run Configuration..."
 5. Enter the input and output paths as the first and second argument in the Program arguments text field
-   The input path must point to a valid AppSet folder structure (see AppSet_MostPopularGooglePlay for an example).
+   The input path must point to a valid AppSet folder structure (see AppSet_MostPopularGooglePlay or AppSet_UsingCodeTransparency for examples).
    Inside the root folder of the AppSet, a set of category folders contains one folder per application, which contains the APKs for that app. 
 6. Click on Apply -> OK
 7. Launch the run configuration through the green triangle in the top toolbar
