@@ -7,16 +7,20 @@ The artifacts submitted for our paper include custom software and data we used f
 # Tested Environments
 
 We used the following environment when working on this project:
+
 - **JDK**: openjdk 22.0.2
 - **IDE**: IntelliJ Community Edition 2024.2.1
 - **Android Studio**: 2024.1.2
 - **OS**: macOS Sonoma 14.5 (23F79) (x86_x64)
 
 The following environment has also been confirmed to work (kudos to our anonymous artifact reviewers at ACSAC'24!):
+
 - **JDK**: Temurin 17.0.12
 - **IDE**: IntelliJ Community Edition 2024.2.1
 - **Android Studio**: 2024.1.2.12
 - **OS**: Ubuntu 24.04 LTS (x86_x64)
+
+**Please Note:** Some parts of this project require a decent amount of RAM. If execution fails with an OutOfMemoryException, increase the maximum heap allowed to the JVM, e.g. by passing -Xmx8192M as an additional argument to the java command.
 
 # Artifact Details
 
@@ -33,6 +37,7 @@ Custom tooling and code we developed for our evaluation can be found in the `Cod
 This folder contains all the code (and binaries) needed for reproducing the Microsoft Loop case study in paper Section 7.2.1. As documented in the paper, the attack injects a dependency on a static library into the manifest of the Microsoft Loop app. As a result, the classes of the static library are added to the app's class path at app launch, which effectively grants the attacker code execution in the context of the victim app. The static library contains a class named identical to the Microsoft Loop app's main activity. When the manipulated Loop app is launched, the class from the static library takes precedence over the app's original main activity. Our fake main activity displays a simply login screen that illustrates the potential to use this attack to extract login credentials.
 
 ##### Prerequisites
+
 * Install bundletool and make sure it is in your PATH, e.g. by following the instructions from https://stackoverflow.com/a/67332078
 
 ##### The experiment
@@ -96,20 +101,21 @@ Output:
 
 0. If you haven't already, download and extract the A2P2 distribution from https://extgit.iaik.tugraz.at/fdraschbacher/a2p2/-/blob/main/a2p2_distribution_v1.0.1.zip?ref_type=heads
 
-1. In the extracted A2P2 distribution folder, create a folder named "stages"
+1. Export the A2P2 distribution folder's path:
+   `export A2P2_PATH=your/path/here`
 
-2. Copy the A2P2 stage JAR file ("a2p2_stage_inject_static_library.jar") to that folder
+2. In the extracted A2P2 distribution folder, create a folder named "stages"
 
-3. Run A2P2:
+3. Copy the A2P2 stage JAR file ("a2p2_stage_inject_static_library.jar") to that folder
+
+4. Run A2P2:
    
    ```bash
    mkdir output 
-   java -jar ~/SDKs/A2P2/a2p2.jar {./Original_APKs} ! unpack ! injectstaticlibrary com.loop.patch.library 1 3D2225686339F019C49C8111333ECBF7B877A158E17BD439B3E899AB42F6DBCF ! pack ! sign ! ./output
+   java -jar $A2P2_PATH/a2p2.jar {./Original_APKs} ! unpack ! injectstaticlibrary com.loop.patch.library 1 3D2225686339F019C49C8111333ECBF7B877A158E17BD439B3E899AB42F6DBCF ! pack ! sign ! ./output
    ```
 
-4. The patched APKs will be located in `output/com.microsoft.loop/`
-
-
+5. The patched APKs will be located in `output/com.microsoft.loop/`
 
 ---
 
