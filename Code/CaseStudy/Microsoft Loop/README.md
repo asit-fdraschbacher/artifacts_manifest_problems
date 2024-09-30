@@ -3,6 +3,7 @@
 This folder contains all the code (and binaries) needed for reproducing the Microsoft Loop case study in paper Section 7.2.1. As documented in the paper, the attack injects a dependency on a static library into the manifest of the Microsoft Loop app. As a result, the classes of the static library are added to the app's class path at app launch, which effectively grants the attacker code execution in the context of the victim app. The static library contains a class named identical to the Microsoft Loop app's main activity. When the manipulated Loop app is launched, the class from the static library takes precedence over the app's original main activity. Our fake main activity displays a simply login screen that illustrates the potential to use this attack to extract login credentials.
 
 ## Prerequisites
+
 * Install bundletool and make sure it is in your PATH, e.g. by following the instructions from https://stackoverflow.com/a/67332078
 
 ## The experiment
@@ -67,15 +68,19 @@ Output:
 
 0. If you haven't already, download and extract the A2P2 distribution from https://extgit.iaik.tugraz.at/fdraschbacher/a2p2/-/blob/main/a2p2_distribution_v1.0.1.zip?ref_type=heads
 
-1. In the extracted A2P2 distribution folder, create a folder named "stages"
+1. Export the A2P2 distribution folder's path:
 
-2. Copy the A2P2 stage JAR file ("a2p2_stage_inject_static_library.jar") to that folder
+2.  `export A2P2_PATH=your/path/here`
 
-3. Run A2P2:
+3. In the extracted A2P2 distribution folder, create a folder named "stages"
+
+4. Copy the A2P2 stage JAR file ("a2p2_stage_inject_static_library.jar") to that folder
+
+5. Run A2P2:
    
    ```bash
    mkdir output 
-   java -jar ~/SDKs/A2P2/a2p2.jar {./Original_APKs} ! unpack ! injectstaticlibrary com.loop.patch.library 1 3D2225686339F019C49C8111333ECBF7B877A158E17BD439B3E899AB42F6DBCF ! pack ! sign ! ./output
+   java -jar $A2P2_PATH/a2p2.jar {./Original_APKs} ! unpack ! injectstaticlibrary com.loop.patch.library 1 3D2225686339F019C49C8111333ECBF7B877A158E17BD439B3E899AB42F6DBCF ! pack ! sign ! ./output
    ```
 
-4. The patched APKs will be located in `output/com.microsoft.loop/`
+6. The patched APKs will be located in `output/com.microsoft.loop/`
